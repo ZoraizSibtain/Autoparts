@@ -1,0 +1,64 @@
+/* Very small file — keep page breathing room */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* main content spacing to separate header and footer visually */
+.App > *:not(.header):not(.footer) {
+  /* allow each section some comfortable top spacing */
+  margin-top: 14px;
+}
+
+.search-bar-modern {
+  margin: 1.5rem auto;
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 
+    0 4px 20px rgba(0, 74, 173, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.search-bar-modern::placeholder {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.search-bar-modern:focus {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 30px rgba(0, 74, 173, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 0 0 3px rgba(0, 74, 173, 0.1);
+  border-color: #004aad;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+}
+
+.search-bar-modern:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 6px 25px rgba(0, 74, 173, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

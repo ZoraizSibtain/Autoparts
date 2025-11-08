@@ -1,0 +1,147 @@
+.header {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.55)
+  );
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(15, 23, 36, 0.04);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1 {
+  color: #004aad; 
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+p {
+  color: #b0b0b0;
+  font-size: 1rem;
+}
+
+
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav a {
+  color: #0a0a0a; /* deep dark gray — almost black */
+  font-weight: 600; /* bolden slightly */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #004aad; /* blue hover effect */
+}
+
+
+
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav ul {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* User dropdown menu (appears on hover) */
+.user-menu {
+  position: relative;
+}
+.user-trigger {
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.user-dropdown {
+  /* ensure dropdown is hidden by default; use a more specific selector and !important to avoid being overridden */
+  display: none !important;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  padding: 8px 0;
+  min-width: 220px;
+  border-radius: 8px;
+  z-index: 60;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.user-dropdown li {
+  list-style: none;
+  padding: 8px 16px;
+}
+.user-dropdown li a {
+  color: #0a0a0a;
+  text-decoration: none;
+  display: block;
+}
+.user-dropdown li a:hover {
+  background: rgba(0,74,173,0.06);
+}
+
+/* Show dropdown when .user-menu has class open */
+.user-menu.open > .user-dropdown {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: show dropdown when user-trigger receives keyboard focus */
+.user-trigger:focus + .user-dropdown,
+.user-trigger:focus-within + .user-dropdown {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* caret */
+.user-trigger { display:flex; align-items:center; gap:8px }
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #004aad;
+  transition: transform 160ms ease;
+  transform-origin: center;
+}
+.caret.open { transform: rotate(180deg) translateY(-1px); }
+
+/* small visual indicator (dot) to show there is a menu */
+.user-label { position: relative; }
+.user-label::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #004aad;
+  border-radius: 50%;
+  margin-left: 6px;
+  opacity: 0.12;
+  vertical-align: middle;
+}

@@ -1,0 +1,248 @@
+.product-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(15, 23, 36, 0.06);
+  transition: transform 220ms cubic-bezier(0.2, 0.9, 0.26, 1),
+    box-shadow 220ms ease;
+  transform-origin: center;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  padding: 20px;
+}
+
+img {
+    float: left;
+    width:  300px;
+    height: 300px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(15, 23, 36, 0.1);
+}
+
+
+.product-image-container {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 36, 0.02),
+    rgba(15, 23, 36, 0.01)
+  );
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.26, 1), filter 350ms ease;
+  display: block;
+  will-change: transform;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.06);
+  filter: contrast(1.02) saturate(1.03);
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 14px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(15, 23, 36, 0.04) 100%
+  );
+}
+
+.view-details-btn {
+  pointer-events: auto;
+  background: transparent;
+  border: 1px solid rgba(15, 23, 36, 0.07);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  backdrop-filter: blur(3px);
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+.product-card:hover .view-details-btn {
+  transform: translateY(-4px);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+
+.product-info {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;
+}
+
+.product-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.product-description {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  flex: 1 0 auto;
+}
+
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.product-description{
+  padding:5px 0px 5px 0px
+}
+
+.price {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #004aad;
+  padding-bottom: 5px;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(180deg, var(--accent), #1646b6);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.14);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 420ms ease both;
+}
+.product-card:nth-child(1) {
+  animation-delay: 60ms;
+}
+.product-card:nth-child(2) {
+  animation-delay: 120ms;
+}
+.product-card:nth-child(3) {
+  animation-delay: 180ms;
+}
+.product-card:nth-child(4) {
+  animation-delay: 240ms;
+}
+.product-card:nth-child(5) {
+  animation-delay: 300ms;
+}
+.product-card:nth-child(6) {
+  animation-delay: 360ms;
+}
+
+
+@media (max-width: 768px) {
+  .product-card {
+    min-height: 360px;
+  }
+  .product-image-container {
+    height: 200px;
+  }
+  .product-info {
+    padding: 14px;
+  }
+  .product-name {
+    font-size: 1rem;
+  }
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.quantity-box button {
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.quantity-box button:hover {
+  background: #2563eb;
+}
+
+.quantity-box span {
+  font-weight: bold;
+  color: #111827;
+  font-size: 15px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.add-btn {
+  background: #004aad;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #2563eb;
+}

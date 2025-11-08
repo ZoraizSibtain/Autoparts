@@ -1,0 +1,65 @@
+.category-filter {
+  background: transparent;
+}
+
+.category-filter h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 36, 0.06);
+  background: linear-gradient(
+    180deg,
+    var(--surface),
+    rgba(250, 250, 250, 0.95)
+  );
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 170ms ease, box-shadow 170ms ease, color 170ms ease;
+  box-shadow: none;
+}
+
+.filter-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+}
+
+.filter-buttons button.active {
+  background: linear-gradient(
+    90deg,
+    rgba(14, 165, 164, 0.08),
+    rgba(37, 99, 235, 0.06)
+  );
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  color: var(--accent);
+  box-shadow: 0 8px 28px rgba(14, 165, 164, 0.06);
+}
+
+@media (max-width: 768px) {
+  .category-filter {
+    padding: 18px 0;
+  }
+  .category-filter h2 {
+    font-size: 1.15rem;
+  }
+  .filter-buttons button {
+    padding: 8px 12px;
+    font-size: 0.88rem;
+  }
+}

@@ -1,0 +1,53 @@
+/* Product grid — roomy, consistent gutters */
+.product-grid {
+  padding: 36px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* progressively adapt columns */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 8px 0;
+  }
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.no-products-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.no-products h3 {
+  color: #495057;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.no-products p {
+  color: #6c757d;
+  font-size: 1rem;
+}
